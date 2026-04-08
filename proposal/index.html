@@ -42,7 +42,26 @@
 
         <h2>Goals and Deliverables</h2>
         <h3>What we plan to deliver:</h3>
-		<p>We plan to deliver three tools that together take a mesh from Blender and progressively refine it into a final rendered image. The first stage applies isotropic remeshing to regularize triangle quality. The second applies a subdivision scheme to add smooth geometric detail. The third adds texture support to our path tracer for realistic rendering. We will evaluate our system by doing before and after comparisons at each stage, demonstrating clear improvements. Ideally, we want to display intermediate results to show how each stage contributes to the final rendered scene.</p>
+		<p>We plan to deliver three tools that together take a mesh from Blender and progressively refine it into a final rendered image. The first stage applies isotropic remeshing to regularize triangle quality. The second applies a subdivision scheme to add smooth geometric detail. The third adds texture support to our path tracer for realistic rendering. We will evaluate our system by doing before and after comparisons at each stage of several demo scenes modeled in Blender, demonstrating clear improvements. Ideally, we want to display intermediate results to show how each stage contributes to the final rendered scene. We will measure quality qualitatively by looking at side-by-side comparisons at each stage, looking at visual smoothness and success of texture applications. The following are examples of what we want to achieve for each stage.</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="images/remeshingEx.png" width="400px"/>
+				  <figcaption>Stage 1: remeshing</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/subdivisionEx.png" width="400px"/>
+				  <figcaption>Stage 2: subdivision</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/textureEx.png" width="400px"/>
+				  <figcaption>Stage 3: texture mapping</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+		<p></p>
         <h3>What we hope to deliver:</h3>
 		<p>If we have enough time, we plan to test our model on more complicated and diverse meshes created in Blender. We would also like to add more textures to handle more realistic rendering scenarios and experiment/compare the effects of multiple subdivision and smoothing techniques.</p>
 
