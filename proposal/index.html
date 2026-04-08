@@ -28,28 +28,34 @@
 	<body>
 		<div class="container">
         <div style="text-align: center;">
-            <h1>MESH EDIT PIPELINE</h1>
+            <h1>From Mesh to Render</h1>
             <h2>CS184 Spring 2026 Final Project Proposal</h2>
             <p>Team members: Carolann Dong, Jocelyn Tao, Nicole Jin, Jessica Ng</p>
+			<p>Link to proposal webpage: <a href="https://jessican1212.github.io/cs184finalproject/proposal/index.html"></a>https://jessican1212.github.io/cs184finalproject/proposal/index.html</p>
         </div>
 
 		<h2>Summary</h2>
-        <p>This project implements a mesh editing pipeline that progressively refines a 3D model step by step. We first take a mesh built in Blender, apply a remeshing algorithm to regularize anisotropic triangles into more uniform ones, run subdivision to produce smoother geometry, and render the final result with texture support in our path tracer. Each stage produces a visible improvement, demonstrating the full journey from raw mesh to polished final product.</p>
+        <p>This project implements a mesh editing and scene rendering pipeline that progressively refines a 3D model step by step. We first take a mesh built in Blender, apply a remeshing algorithm to regularize anisotropic triangles into more uniform ones, run subdivision to produce smoother geometry, and render the final result with texture support in our path tracer. Each stage produces a visible improvement, demonstrating the full journey from raw mesh to polished final product.</p>
 
         <h2>Problem Description</h2>
         <p>Raw meshes from Blender or other sources often have uneven, poorly shaped triangles. This directly affects both the stability of downstream processing operations and overall visual quality of our objects. Our project builds a multi-step pipeline to fix this: we remesh to clean up triangle quality, subdivide to add smooth detail, and then render the result with textures in our path tracer. The main challenges are implementing remeshing that improves triangles without distorting the original shape, choosing a subdivision sceheme that works well on the remeshed output, and integrating UV-based texture lookups into our existing path tracing framework. We extend our HW2 mesh editor and HW3 path tracer as starting points and rely on work from external research papers at each stage of the pipeline. Another challenge is ensuring that our pipeline works end-to-end, which we will address by testing the full multi-step process early on with a simple mesh to ensure file formats work between independent stages.</p>
 
         <h2>Goals and Deliverables</h2>
         <h3>What we plan to deliver:</h3>
-		<p>We plan to deliver a complete end-to-end mesh editing pipeline that takes a mesh from blender, improves it's quality, and produces a final rendered image using our path tracer and texture support. The pipeline will be seperated into three stages: remeshing / mesh regularization, a subdivision scheme, and texture support for realistic rendering. We will evaluate our system by doing before and after comparisons, demonstrating clear improvements.</p>
+		<p>We plan to deliver three tools that together take a mesh from Blender and progressively refine it into a final rendered image. The first stage applies isotropic remeshing to regularize triangle quality. The second applies a subdivision scheme to add smooth geometric detail. The third adds texture support to our path tracer for realistic rendering. We will evaluate our system by doing before and after comparisons at each stage, demonstrating clear improvements. Ideally, we want to display intermediate results to show how each stage contributes to the final rendered scene.</p>
         <h3>What we hope to deliver:</h3>
-		<p>If we have enough time, we plan to test our model on more complicated and diverse meshes created in Blender. We would also like to add more textures to handle more realistic rendering scenarios and experiment on better subdivision and smoothing techniques. Finally, we want to display intermediate results so that we'll be able to show how each part contributes to the final image.</p>
+		<p>If we have enough time, we plan to test our model on more complicated and diverse meshes created in Blender. We would also like to add more textures to handle more realistic rendering scenarios and experiment/compare the effects of multiple subdivision and smoothing techniques.</p>
 
         <h2>Schedule</h2>
-        <p>In this section you should organize and plan the tasks and subtasks that your team will execute. Since presentations are ~4 weeks from the due-date of the proposal, you should include a set of tasks for every week.</p>
+		<ul>
+			<li>Week 1: Research. Read the Botsch & Kobbelt paper and Hao Li lecture slides to understand the remeshing algorithm. Research and choose which subdivision scheme to implement (mostly likely either Catmull Clark, butterfly, or root 3). Read the Cornell lecture slides and understand how to add textures to the HW3 path tracer.</li>
+			<li>Week 2: Implementation. Implements the remeshing loop. Implements the subdivision scheme of choice. Get basic texture mapping working in the path tracer. Create 3-4 test meshes in Blender and export files to later work with.</li>
+			<li>Week 3: Integration and debugging. Connect all stages together by feeding files from Blender to remeshing then subdivision then texture path tracing. Fix any integration issues.</li>
+			<li>Week 4: Render final demo images (intemediate stages and final products). Complete the final project writeup, presentation, video demo, and whatever else needs to be delivered.</li>
+		</ul>
 
         <h2>Resources</h2>
-        <p>List what resources, e.g. books, papers and/or online resources that are references for your project. List the computing platform, hardware and software resources that you will use for your project. You have a wide latitude here to use what you have access to, but be aware that you will have to support and trouble-shoot on your platform yourselves. If you are starting from an existing piece of code or system, describe and provide a pointer to it here.</p>
+		<p>We are starting from our HW2 mesh editor and HW3 path tracer. To learn about mesh regularization for stage 1, we will reference <a href="https://www.hao-li.com/cs599-ss2015/slides/Lecture09.1.pdf">these slides</a> from Hao Li's CS599 course, as well as <a href="https://www.graphics.rwth-aachen.de/media/papers/remeshing1.pdf">A Remeshing Approach to Multiresolution Modeling</a> if needed. To learn about different subdivision schemes, we will use the research paper <a href="https://graphics.stanford.edu/courses/cs348a-21-winter/Papers/warren-subdivision.pdf">Subdivision methods for geometric design</a>. For adding texture support to our path tracing homework, we will reference <a href="https://www.cs.cornell.edu/courses/cs4620/2017sp/slides/06rt-textures.pdf">these slides</a> from Cornell's CS4620 course. Our computing platform is our local machines (macOS) for development and rendering, also using C++, CGL, and OpenMesh. We will use Blender as the software to model and export test meshes. We will refer to our CS184 lecture slides for subdivision and texture mapping background knowledge.</p>
 
 		</div>
 	</body>
