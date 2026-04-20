@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+			h1 {
+				text-align: center;
+			}
+
+			.container {
+				margin: 0 auto;
+				padding: 60px 20%;
+			}
+
+			figure {
+				text-align: center;
+			}
+
+			img {
+				display: inline-block;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+        <div style="text-align: center;">
+            <h1>From Mesh to Render</h1>
+            <h2>CS184 Spring 2026 Final Project Milestone</h2>
+            <p>Team members: Carolann Dong, Jocelyn Tao, Nicole Jin, Jessica Ng</p>
+			<p>Link to milestone webpage: <a href="https://jessican1212.github.io/cs184finalproject/milestone/index.html"></a>https://jessican1212.github.io/cs184finalproject/milestone/index.html</p>
+            <p>Link to presentation: <a href="https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing"></a>https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing</p>
+
+        </div>
+
+		<h2>What we've done so far</h2>
+        <p>
+            For mesh rendering, so far, we've
+        </p>
+        <p>
+            For new subdivision schemes, we've read up on some possible new schemes that were not covered in homework 2. So far, we've implemented
+            the butterfly subdivision scheme by building off of the code provided in homework 2. 
+            We mainly accomplished this by replacing the <code>MeshResampler::upsample</code> function with a 
+            <code>MeshResampler::buttefly</code> function. We learned that butterfly subdivision differs from the original loop 
+            subdivision scheme we implemented in a few ways, and we implemented the butterfly subdivison as follows:
+            <ul>
+                <li>
+                    First, we keep all original vertices where they are. This is different because loop subdivision ultimately moves
+                    vertices. For each existing vertex V with n neighbors, the original scheme computes a new position (1 − nβ)·V + β·(sum of neighbors).
+                </li>
+                <li>
+                    Then, for each edge, we compute a midpoint M. 
+                    For each edge, compute one new point M. We get that edge's endpoints (A and B), the opposite vertices of
+                    the two triangles that share that edge (C and D), and four other vertices that form triangles with edges
+                    AC, BC, AD, and BD (we call them E, F, G, and H). We then update M as ½(A + B) + ⅛(C + D) − ¹⁄₁₆(E + F + G + H).
+                 </li>
+                <li>
+                    Then, we simply split every original edge, flipped new edges that connect an old vertex to a new vertex,
+                    and update the vertex positions. These steps are similar to the original scheme.
+                </li>
+            </ul>
+        We also added the ability to use this scheme by pressing the 'B' key.
+        </p>
+        <p>
+            For new subdivision schemes, we've read up on some possible new schemes that were not covered in homework 2. So far, we've implemented
+            the butterfly subdivision scheme by building off of the code provided in homework 2. 
+        </p>
+
+        <h2>Preliminary results</h2>
+        <p>For butterfly subdvision scheme:</p>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="images/butterfly1.png" width="400px"/>
+				  <figcaption>Original</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/butterfly2.png" width="400px"/>
+				  <figcaption>After 1</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/butterfly3.png" width="400px"/>
+				  <figcaption>After 2</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+
+        <h2>Plan adjustments</h2>
+        <p>
+            We've been pretty on track so far with our project, but we did want to continue with code implementation 
+            coming up on week 3 as well, just to experiment with things like more subdivision schemes now that 
+            we have some of the code running.
+        <ul>
+			<li>Week 1: Research. Read the Botsch & Kobbelt paper and Hao Li lecture slides to understand the remeshing algorithm. Research and choose which subdivision scheme to implement (mostly likely either Catmull Clark, butterfly, or root 3). Read the Cornell lecture slides and understand how to add textures to the HW3 path tracer.</li>
+			<li>Week 2: Implementation. Implements the remeshing loop. Implements the subdivision scheme of choice. Get basic texture mapping working in the path tracer. Create 3-4 test meshes in Blender and export files to later work with.</li>
+			<li>Week 3: (+ Implemention of more subdivision schemes, and continue with refining our code from week 2.) Integration and debugging. Connect all stages together by feeding files from Blender to remeshing then subdivision then texture path tracing. Fix any integration issues.</li>
+			<li>Week 4: Render final demo images (intemediate stages and final products). Complete the final project writeup, presentation, video demo, and whatever else needs to be delivered.</li>
+		</ul>
+    </p>
+		</div>
+	</body>
+</html>
