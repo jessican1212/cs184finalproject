@@ -37,8 +37,9 @@
         </div>
 
 		<h2>What we've done so far</h2>
+		<h3>Remeshing</h3>
         <p>
-            For mesh rendering, we've read up on ways to improve mesh quality. In homework 2, we implemented manual edge splitting and flipping. In this project, we extended that by automating these operations to iteratively improve the mesh. 
+            For remeshing, we've read up on ways to improve mesh quality. In homework 2, we implemented manual edge splitting and flipping. In this project, we extended that by automating these operations to iteratively improve the mesh. 
 		</p>
 		<p>
 			How it works is first we compute the average edge length across the mesh and use this to define what it means to count as a "long" edge. Then we loop through all of the edges and split the edges with length exceeding this threshold. This helps eliminate overly long or stretched triangles helps make the mesh more uniform in size. 
@@ -49,6 +50,7 @@
 		<p>
 			Overall, this automated process improves the mesh quality and connectivity, resulting in a more stable and grid-like mesh for rendering. 
 		</p>
+		<h3>Subdivision</h3>
         <p>
             For new subdivision schemes, we've read up on some possible new schemes that were not covered in homework 2. So far, we've implemented
             the butterfly subdivision scheme by building off of the code provided in homework 2. 
