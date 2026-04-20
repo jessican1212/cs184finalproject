@@ -38,8 +38,17 @@
 
 		<h2>What we've done so far</h2>
         <p>
-            For mesh rendering, so far, we've
+            For mesh rendering, we've read up on ways to improve mesh quality. In homework 2, we implemented manual edge splitting and flipping. In this project, we extended that by automating these operations to iteratively improve the mesh. 
+		</p>
+		<p>
+			How it works is first we compute the average edge length across the mesh and use this to define what it means to count as a "long" edge. Then we loop through all of the edges and split the edges with length exceeding this threshold. This helps eliminate overly long or stretched triangles helps make the mesh more uniform in size. 
+		<p>
+		</p>
+			After splitting, we perform edge flips to improve the mesh connectivity. For each edge, we check whether flipping it would improve the valence of surrounding vertices. Ideally, the valence of each inner vertex should be close to 6. If flipping an edge brings the valence closer to 6, then we flip it.
         </p>
+		<p>
+			Overall, this automated process improves the mesh quality and connectivity, resulting in a more stable and grid-like mesh for rendering. 
+		</p>
         <p>
             For new subdivision schemes, we've read up on some possible new schemes that were not covered in homework 2. So far, we've implemented
             the butterfly subdivision scheme by building off of the code provided in homework 2. 
@@ -70,6 +79,26 @@
         </p>
 
         <h2>Preliminary results</h2>
+		<p> For automatic remeshing:</p>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="images/remeshing1.png" width="400px"/>
+				  <figcaption>Original</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/remeshing2.png" width="400px"/>
+				  <figcaption>After 1</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/remeshing3.png" width="400px"/>
+				  <figcaption>After 2</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+
         <p>For butterfly subdvision scheme:</p>
         <div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
@@ -93,7 +122,7 @@
         <h2>Plan adjustments</h2>
         <p>
             We've been pretty on track so far with our project, but we did want to continue with code implementation 
-            coming up on week 3 as well, just to experiment with things like more subdivision schemes now that 
+            coming up on week 3 as well, adding edge collapse and vertex shifts to the remeshing algorithm and experimenting with things like more subdivision schemes now that 
             we have some of the code running.
         <ul>
 			<li>Week 1: Research. Read the Botsch & Kobbelt paper and Hao Li lecture slides to understand the remeshing algorithm. Research and choose which subdivision scheme to implement (mostly likely either Catmull Clark, butterfly, or root 3). Read the Cornell lecture slides and understand how to add textures to the HW3 path tracer.</li>
