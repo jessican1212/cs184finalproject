@@ -9,7 +9,7 @@
 
 			.container {
 				margin: 0 auto;
-				padding: 60px 20%;
+				padding: 60px 60px;
 			}
 
 			figure {
@@ -31,8 +31,8 @@
             <h1>From Mesh to Render</h1>
             <h2>CS184 Spring 2026 Final Project Milestone</h2>
             <p>Team members: Carolann Dong, Jocelyn Tao, Nicole Jin, Jessica Ng</p>
-			<p>Link to milestone webpage: <a href="https://jessican1212.github.io/cs184finalproject/milestone/index.html"></a>https://jessican1212.github.io/cs184finalproject/milestone/index.html</p>
-            <p>Link to presentation: <a href="https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing"></a>https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing</p>
+			<p>Link to milestone webpage: <a href="https://jessican1212.github.io/cs184finalproject/milestone/index.html">https://jessican1212.github.io/cs184finalproject/milestone/index.html</a></p>
+            <p>Link to presentation: <a href="https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing">https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing</a></p>
 			<p>Link to video: <a href=""></a></p>
 
         </div>
@@ -41,14 +41,11 @@
 		<h3>Remeshing</h3>
         <p>
             For remeshing, we've read up on ways to improve mesh quality. In homework 2, we implemented manual edge splitting and flipping. In this project, we extended that by automating these operations to iteratively improve the mesh. 
-		</p>
-		<p>
+
 			How it works is first we compute the average edge length across the mesh and use this to define what it means to count as a "long" edge. Then we loop through all of the edges and split the edges with length exceeding this threshold. This helps eliminate overly long or stretched triangles helps make the mesh more uniform in size. 
-		<p>
-		</p>
+
 			After splitting, we perform edge flips to improve the mesh connectivity. For each edge, we check whether flipping it would improve the valence of surrounding vertices. Ideally, the valence of each inner vertex should be close to 6. If flipping an edge brings the valence closer to 6, then we flip it.
-        </p>
-		<p>
+
 			Overall, this automated process improves the mesh quality and connectivity, resulting in a more stable and grid-like mesh for rendering. 
 		</p>
 		<h3>Subdivision</h3>
