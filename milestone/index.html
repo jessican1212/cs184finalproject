@@ -33,6 +33,7 @@
             <p>Team members: Carolann Dong, Jocelyn Tao, Nicole Jin, Jessica Ng</p>
 			<p>Link to milestone webpage: <a href="https://jessican1212.github.io/cs184finalproject/milestone/index.html"></a>https://jessican1212.github.io/cs184finalproject/milestone/index.html</p>
             <p>Link to presentation: <a href="https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing"></a>https://docs.google.com/presentation/d/12SYI8L0DfaFuNYgOvyLAdcdTvO24CtEy2pt3Wtx4J1I/edit?usp=sharing</p>
+			<p>Link to video: <a href=""></a></p>
 
         </div>
 
@@ -80,6 +81,10 @@
             the butterfly subdivision scheme by building off of the code provided in homework 2. 
         </p>
 
+		<h3>Texture Mapping</h3>
+		<p>We implemented a rough version of texture mapping in our hw3 path tracer. We used the texture class code from hw1: rasterizer for the texture sampling methods. Upon ray intersection with triangles, we computationally generate UV coordinates based on the world-space hit point. The next step is replacing the generated UVs with per-vertex UVs from the .dae file, and then perform barycentric interpolation to make the texture look less deformed on the scene.</p>
+
+
         <h2>Preliminary results</h2>
 		<p> For automatic remeshing:</p>
 		<div style="display: flex; flex-direction: column; align-items: center;">
@@ -121,11 +126,27 @@
 			</table>
 		</div>
 
+		<p>For texture mapping:</p>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="images/abstract-patterns.png" width="300px"/>
+				  <figcaption>Texture png</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="images/finalproj.png" width="300px"/>
+				  <figcaption>Texture mapped onto blob.dae from hw3</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+
         <h2>Plan adjustments</h2>
         <p>
             We've been pretty on track so far with our project, but we did want to continue with code implementation 
             coming up on week 3 as well, adding edge collapse and vertex shifts to the remeshing algorithm and experimenting with things like more subdivision schemes now that 
-            we have some of the code running.
+            we have some of the code running. We also have yet to test our pipeline end-to-end. 
         <ul>
 			<li>Week 1: Research. Read the Botsch & Kobbelt paper and Hao Li lecture slides to understand the remeshing algorithm. Research and choose which subdivision scheme to implement (mostly likely either Catmull Clark, butterfly, or root 3). Read the Cornell lecture slides and understand how to add textures to the HW3 path tracer.</li>
 			<li>Week 2: Implementation. Implements the remeshing loop. Implements the subdivision scheme of choice. Get basic texture mapping working in the path tracer. Create 3-4 test meshes in Blender and export files to later work with.</li>
